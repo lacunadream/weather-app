@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather (jQuery + MDL Test)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="js/weather/weather_2.js"></script>
+    <style>
+        .tempH {
+            font-weight: 700;
+        }
+        
+        .tempL {
+            font-weight: 300;
+        }
+        
+        .demo-card-square.mdl-card {
+            width: 320px;
+            height: 320px;
+            margin-right: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .demo-card-square > .mdl-card__title {
+            color: #fff;
+        }
+        
+        .weather-image {
+            background: url('img/weather/weather.png') bottom 5% right 1% no-repeat #6E5DBD;
+        }
+        
+        .temp-image {
+            background: url('img/weather/temp.png') bottom right -5% no-repeat #6E5DBD;
+        }
+        
+        .cloudiness-image {
+            background: url('img/weather/clouds.png') top right -35% no-repeat #6E5DBD;
+        }
+        
+        .sunrise-image {
+            background: url('img/weather/sunrise_2.png') top right -5% no-repeat #6E5DBD;
+        }
+        
+        .sunset-image {
+            background: url('img/weather/sunset.png') top 20% right 5% no-repeat #6E5DBD;
+        }
+        
+        .humidity-image {
+            background: url('img/weather/humidity.png') top 20% right 15% no-repeat #6E5DBD;
+        }
+        
+        .mdl-grid {
+            vertical-align-align: center;
+            padding-top: 50px;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Helvetica', sans-serif;
+            background: url('http://www.ambwallpapers.com/wp-content/uploads/2015/02/HD-Scenery-Wallpapers-1.jpg');
+        }
+        
+        .mdl-card__supporting-text-long {
+            font-size: 15px !important;
+            height: 100px !important;
+        }
+        
+        .mdl-card__supporting-text {
+            font-size: 15px !important;
+            height: 80px;
+            padding: 12px !important;
+        }
+        
+        #android-font {
+            font-family: 'Lobster', cursive;
+            line-height: 1;
+            color: black;
+            font-weight: 300;
+            font-size: 60px;
+            text-align: center;
+            padding-top: 50px;
+        }
+        
+        .demo-card-square.mdl-card {
+            width: 320px;
+            height: 320px;
+        }
+        
+        .demo-card-wide.mdl-card {
+            width: 665px;
+        }
+        
+        .demo-card-wide > .mdl-card__menu {
+            color: #fff;
+        }
+        
+        .mdl-card {
+            min-height: 100px !important;
+        }
+        
+        a:link {
+            text-decoration: none;
+        }
+        
+        a:visited {
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        a:active {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<script>
+</script>
+
+<body>
+    <div class="city" id="android-font"></div>
+    <div class="container">
+
+        <div class="mdl-grid">
+
+
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand weather-image">
+                        <h2 class="mdl-card__title-text">Weather</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text weather">
+
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand temp-image">
+                        <h2 class="mdl-card__title-text">Temperature</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <span class="temp"></span></br>
+                        <span class="tempH"></span></br>
+                        <span class="tempL"></span>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand cloudiness-image">
+                        <h2 class="mdl-card__title-text">Cloudiness</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <span class="cloudiness"></span>
+                    </div>
+
+                </div>
+            </a>
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand sunrise-image">
+                        <h2 class="mdl-card__title-text">Sunrise</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <span class="sunrise"></span>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand sunset-image">
+                        <h2 class="mdl-card__title-text">Sunset</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <span class="sunset"></span>
+                    </div>
+                </div>
+            </a>
+            <a>
+                <div class="mdl-card mdl-shadow--2dp demo-card-square">
+                    <div class="mdl-card__title mdl-card--expand humidity-image">
+                        <h2 class="mdl-card__title-text">Humidity</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <span class="humidity"></span>
+                    </div>
+                </div>
+            </a>
+            <div class="mdl-card mdl-shadow--2dp demo-card-wide">
+                <div class="mdl-card__supporting-text .mdl-card__supporting-text-long">
+                    <span>
+  Weather page that grabs location based off IP (not a manual location request). Converts IP to location via ipinfo's API  and requests for location's weather through openweather's API. Implemented MDL for the page design, namely the cards system. However there is very little documentation on column implementation. </span>
+                </div>
+            </div>
+
+
+        </div>
+
+</body>
+
+
+</html>
